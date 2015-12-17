@@ -1,0 +1,25 @@
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+</head>
+<script type="text/javascript">
+   $(document).ready(function(){
+	   $(".configpagecontier a").each(function(i,e){
+		   var $this = $(e);
+		   $this.on('click',function(){
+			   $(".configpagecontier a").removeClass('pageNumActive');
+			   $this.addClass('pageNumActive');
+		   })
+	   });
+   });
+</script>
+<div class="pageContent">
+	<div class="panelBar">
+		<div class="configpagecontier">
+		        <a class="choosePage">上一页</a>
+		        <a class="pageNum">1</a>
+		        <a class="pageNum">2</a>
+		        <a class="pageNum">3</a>
+		        <a class="choosePage">下一页</a>
+		</div>
+	</div>
+</div>

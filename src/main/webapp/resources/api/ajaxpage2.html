@@ -1,0 +1,487 @@
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<title>左右分栏</title>
+</head>
+<div class="configGoodpage">
+<div class="configNavleft border-all">
+	<div class="navheader">
+		<a id="goodsNav"   class="navbartitle border-bottom font-center  bar-bg">商品类别</a>
+		<a id="accessNav"  class="navbartitle border-bottom border-left font-center bar-bg">财务科目</a>
+	</div>
+	<div id="goodsTree" style="height: 100%;">
+	<ul>
+		<li>
+		<div class="icon-manage icon-minus border-all bar-bg navbaritem">运营维护</div>
+	               <ul class="navtree">
+	                   <li><a href="#">操作日志</a></li>
+	                   <li><a href="#">参数配置</a></li>
+	               </ul>
+	           </li>
+	           <li>
+	               <div  class="icon-shop icon-minus border-all  bar-bg navbaritem">营业配置</div>
+	               <ul class="navtree">
+	                   <li><a href="#">商品管理</a></li>
+	                   <li><a href="#">付款方式</a></li>
+	                   <li><a href="#">机构设置</a></li>
+	                   <li><a href="#">部门设置</a></li>
+	                   <li><a href="#">部门折扣设置</a></li>
+	                   <li><a href="#">球场设置</a></li>
+	                   <li><a href="#">Tee-time字段</a></li>
+	                   <li><a href="#">球场时间方案</a></li>
+	                   <li><a href="#">球场封场设置</a></li>
+	                   <li><a href="#">身份设置</a></li>
+	                   <li><a href="#">会籍配置</a></li>
+	                   <li><a href="#">会员状态设置</a></li>
+	                   <li><a href="#">打球费用配置</a></li>
+	               </ul>
+	           </li>
+	           <li>
+	               <div  class="icon-base icon-minus border-all bar-bg navbaritem" >基础设置</div>
+	               <ul class="navtree">
+	                   <li><a href="#">中介设置</a></li>
+	                   <li><a href="#">销售员设置</a></li>
+	                   <li><a href="#">通用原因设置</a></li>
+	                   <li><a href="#">假日设置</a></li>
+	               </ul>
+	           </li>
+	           <li>
+	               <div  class="icon-user icon-minus border-all bar-bg navbaritem">用户管理</div>
+	               <ul class="navtree">
+	                   <li><a href="#">权限设置</a></li>
+	                   <li><a href="#">角色设置</a></li>
+	                   <li><a href="#">用户名设置</a></li>
+	               </ul>
+	           </li>
+	        </ul>
+	</div>
+		<div id="accessTree">
+		<ul>
+		<li>
+		<div class="icon-manage icon-minus border-all bar-bg navbaritem">财务科目1</div>
+	               <ul class="navtree">
+	                   <li><a href="#">操作日志</a></li>
+	                   <li><a href="#">参数配置</a></li>
+	               </ul>
+	           </li>
+	           <li>
+	               <div  class="icon-shop icon-minus border-all  bar-bg navbaritem">营业配置</div>
+	               <ul class="navtree">
+	                   <li><a href="#">商品管理</a></li>
+	                   <li><a href="#">付款方式</a></li>
+	                   <li><a href="#">机构设置</a></li>
+	                   <li><a href="#">部门设置</a></li>
+	                   <li><a href="#">部门折扣设置</a></li>
+	                   <li><a href="#">球场设置</a></li>
+	                   <li><a href="#">Tee-time字段</a></li>
+	                   <li><a href="#">球场时间方案</a></li>
+	                   <li><a href="#">球场封场设置</a></li>
+	                   <li><a href="#">身份设置</a></li>
+	                   <li><a href="#">会籍配置</a></li>
+	                   <li><a href="#">会员状态设置</a></li>
+	                   <li><a href="#">打球费用配置</a></li>
+	               </ul>
+	           </li>
+	           <li>
+	               <div  class="icon-base icon-minus border-all bar-bg navbaritem" >基础设置</div>
+	               <ul class="navtree">
+	                   <li><a href="#">中介设置</a></li>
+	                   <li><a href="#">销售员设置</a></li>
+	                   <li><a href="#">通用原因设置</a></li>
+	                   <li><a href="#">假日设置</a></li>
+	               </ul>
+	           </li>
+	           <li>
+	               <div  class="icon-user icon-minus border-all bar-bg navbaritem">用户管理</div>
+	               <ul class="navtree">
+	                   <li><a href="#">权限设置</a></li>
+	                   <li><a href="#">角色设置</a></li>
+	                   <li><a href="#">用户名设置</a></li>
+	               </ul>
+	           </li>
+	        </ul>
+	</div>
+</div>
+<div class="configContentRight border-all">
+		<div class="pageContent">
+		<div class="panelBar">
+				<div class="configtoolBar">
+					<a class="configBarAdd bottoncolor" href="#" target="dialog" width="700" height="500">添加</a>
+					<a class="configBarEdit bottoncolor" href="#" target="dialog" width="800" height="500">修改</a>
+					<a class="configBarDelete bottoncolor" href="#" target="ajaxTodo" title="确定要删除吗?">删除</a>
+					<a class="configBarSeperate bottoncolor" href="#" target="ajaxTodo">拆分</a>
+				</div>
+		</div>
+		<div class="searchbar">
+				<form>
+				<label>商品名称：<input type="text" ></label> <label>商品编号：<input type="text"></label><label class="btnSumbitBg font-center" style="margin-top: -2px;" >查询<input type="submit" class='sumbitInput'></label>
+				</form>
+		</div>
+		<input type="hidden" id="selectGoodId" >
+		<div id="goodtable">
+		<table id="goodsList" class="configTable" width="100%" >
+			<thead>
+				<tr>
+					<th>操作</th>
+					<th>商品编码</th>
+					<th>商品名称</th>
+					<th>助记码</th>
+					<th>规格</th>
+					<th>价格</th>
+					<th>商品类别</th>
+					<th>财务科目</th>
+					<th>折扣</th>
+					<th>服务费</th>
+					<th>操作</th>
+				</tr>
+			</thead>
+			<tbody>
+			
+				<tr data-goodId='1'>
+					<td><a class="listBtnPlus">展开</a></td>
+					<td>0101010</td>
+					<td>可乐</td>
+					<td>KL</td>
+					<td>瓶</td>
+					<td>10.00</td>
+					<td>饮料</td>
+					<td>餐饮收入</td>
+					<td>是</td>
+					<td>否</td>
+					<td><a alt="详情" class="listBtnDetil">详情</a></td>
+				</tr>
+				<tr data-goodId='2'>
+					<td><a class="listBtnPlus">展开</a></td>
+					<td>0101010</td>
+					<td>可乐</td>
+					<td>KL</td>
+					<td>瓶</td>
+					<td>10.00</td>
+					<td>饮料</td>
+					<td>餐饮收入</td>
+					<td>是</td>
+					<td>否</td>
+					<td><a class="listBtnDetil">详情</a></td>
+				</tr>
+				<tr>
+					<td><a class="listBtnPlus">展开</a></td>
+					<td>0101010</td>
+					<td>可乐</td>
+					<td>KL</td>
+					<td>瓶</td>
+					<td>10.00</td>
+					<td>饮料</td>
+					<td>餐饮收入</td>
+					<td>是</td>
+					<td>否</td>
+					<td><a class="listBtnDetil">详情</a></td>
+				</tr>
+				<tr>
+					<td><a class="listBtnPlus">展开</a></td>
+					<td>0101010</td>
+					<td>可乐</td>
+					<td>KL</td>
+					<td>瓶</td>
+					<td>10.00</td>
+					<td>饮料</td>
+					<td>餐饮收入</td>
+					<td>是</td>
+					<td>否</td>
+					<td><a class="listBtnDetil">详情</a></td>
+				</tr>
+				<tr>
+					<td><a class="listBtnPlus">展开</a></td>
+					<td>0101010</td>
+					<td>可乐</td>
+					<td>KL</td>
+					<td>瓶</td>
+					<td>10.00</td>
+					<td>饮料</td>
+					<td>餐饮收入</td>
+					<td>是</td>
+					<td>否</td>
+					<td><a class="listBtnDetil">详情</a></td>
+				</tr>
+				<tr>
+					<td><a class="listBtnPlus">展开</a></td>
+					<td>0101010</td>
+					<td>可乐</td>
+					<td>KL</td>
+					<td>瓶</td>
+					<td>10.00</td>
+					<td>饮料</td>
+					<td>餐饮收入</td>
+					<td>是</td>
+					<td>否</td>
+					<td><a class="listBtnDetil">详情</a></td>
+				</tr>
+				<tr>
+					<td><a class="listBtnPlus">展开</a></td>
+					<td>0101010</td>
+					<td>可乐</td>
+					<td>KL</td>
+					<td>瓶</td>
+					<td>10.00</td>
+					<td>饮料</td>
+					<td>餐饮收入</td>
+					<td>是</td>
+					<td>否</td>
+					<td><a class="listBtnDelete">删除</a></td>
+				</tr>
+				<tr>
+					<td><a class="listBtnPlus">展开</a></td>
+					<td>0101010</td>
+					<td>可乐</td>
+					<td>KL</td>
+					<td>瓶</td>
+					<td>10.00</td>
+					<td>饮料</td>
+					<td>餐饮收入</td>
+					<td>是</td>
+					<td>否</td>
+					<td><a class="listBtnEdit">编辑</a></td>
+				</tr>
+				<tr>
+					<td><a class="listBtnPlus">展开</a></td>
+					<td>0101010</td>
+					<td>可乐</td>
+					<td>KL</td>
+					<td>瓶</td>
+					<td>10.00</td>
+					<td>饮料</td>
+					<td>餐饮收入</td>
+					<td>是</td>
+					<td>否</td>
+					<td><a class="listBtnEdit">编辑</a></td>
+				</tr>
+				<tr>
+					<td><a class="listBtnPlus">展开</a></td>
+					<td>0101010</td>
+					<td>可乐</td>
+					<td>KL</td>
+					<td>瓶</td>
+					<td>10.00</td>
+					<td>饮料</td>
+					<td>餐饮收入</td>
+					<td>是</td>
+					<td>否</td>
+					<td><a class="listBtnEdit">编辑</a></td>
+				</tr>
+				<tr>
+					<td><a class="listBtnPlus">展开</a></td>
+					<td>0101010</td>
+					<td>可乐</td>
+					<td>KL</td>
+					<td>瓶</td>
+					<td>10.00</td>
+					<td>饮料</td>
+					<td>餐饮收入</td>
+					<td>是</td>
+					<td>否</td>
+					<td><a class="listBtnEdit">编辑</a></td>
+				</tr>
+				<tr>
+					<td><a class="listBtnPlus">展开</a></td>
+					<td>0101010</td>
+					<td>可乐</td>
+					<td>KL</td>
+					<td>瓶</td>
+					<td>10.00</td>
+					<td>饮料</td>
+					<td>餐饮收入</td>
+					<td>是</td>
+					<td>否</td>
+					<td><a class="listBtnEdit">编辑</a></td>
+				</tr>
+				<tr>
+					<td><a class="listBtnPlus">展开</a></td>
+					<td>0101010</td>
+					<td>可乐</td>
+					<td>KL</td>
+					<td>瓶</td>
+					<td>10.00</td>
+					<td>饮料</td>
+					<td>餐饮收入</td>
+					<td>是</td>
+					<td>否</td>
+					<td><a class="listBtnEdit">编辑</a></td>
+				</tr>
+				<tr>
+					<td><a class="listBtnPlus">展开</a></td>
+					<td>0101010</td>
+					<td>可乐</td>
+					<td>KL</td>
+					<td>瓶</td>
+					<td>10.00</td>
+					<td>饮料</td>
+					<td>餐饮收入</td>
+					<td>是</td>
+					<td>否</td>
+					<td><a class="listBtnEdit">编辑</a></td>
+				</tr>
+				<tr>
+					<td><a class="listBtnPlus">展开</a></td>
+					<td>0101010</td>
+					<td>可乐</td>
+					<td>KL</td>
+					<td>瓶</td>
+					<td>10.00</td>
+					<td>饮料</td>
+					<td>餐饮收入</td>
+					<td>是</td>
+					<td>否</td>
+					<td><a class="listBtnEdit">编辑</a></td>
+				</tr>
+				<tr>
+					<td><a class="listBtnPlus">展开</a></td>
+					<td>0101010</td>
+					<td>可乐</td>
+					<td>KL</td>
+					<td>瓶</td>
+					<td>10.00</td>
+					<td>饮料</td>
+					<td>餐饮收入</td>
+					<td>是</td>
+					<td>否</td>
+					<td><a class="listBtnEdit">编辑</a></td>
+				</tr>
+				<tr>
+					<td><a class="listBtnPlus">展开</a></td>
+					<td>0101010</td>
+					<td>可乐</td>
+					<td>KL</td>
+					<td>瓶</td>
+					<td>10.00</td>
+					<td>饮料</td>
+					<td>餐饮收入</td>
+					<td>是</td>
+					<td>否</td>
+					<td><a class="listBtnMinus">收缩</a></td>
+				</tr>
+				
+			</tbody>
+		</table>
+		</div>
+		<div class="panelBar">
+			<div class="configpagecontier">
+			        <a class="choosePage">上一页</a>
+			        <a class="pageNum">1</a>
+			        <a class="pageNum">2</a>
+			        <a class="pageNum">3</a>
+			        <a class="choosePage">下一页</a>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="contextMenu" target="goodsTree" width="80" style="display: none;" >
+	<ul >
+	<li><a class="add"  target="dialog" ><span>添加菜单商品类别</span> </a></li>
+	<li><a class="edit" target="dialog" ><span>修改菜单111</span> </a>	</li>
+	<li><a class="delete" href="${ctx}/system/menu/delete.json?id={sid_user}" target="ajaxTodo" title="确定要删除吗?"><span>删除菜单111</span></a></li>
+	</ul>
+</div>
+<div class="contextMenu" target="accessTree" width="80" style="display: none;" >
+	<ul >
+	<li><a class="add" target="dialog" ><span>添加菜单财务科目</span> </a></li>
+	<li><a class="edit"  target="dialog" ><span>修改菜单111</span> </a>	</li>
+	<li><a class="delete"  target="ajaxTodo" title="确定要删除吗?"><span>删除菜单111</span></a></li>
+	</ul>
+</div>
+</div>
+<script type="text/javascript">
+function goodsInit(){
+    /* 初始化 nav 展开收缩方法*/
+    navBarSelectFun();
+    navActiveFun();
+    showNavList();
+    selectList();
+    showGoodsDetil();
+}
+/*商品列表 财务科目 切换    */
+function showNavList(){
+  $("#goodsNav").off("click").on("click",function(){
+	  $(this).addClass('navbartactive');
+	  $("#accessNav").removeClass('navbartactive');
+	  $("#goodsTree").show();
+	  $("#accessTree").hide();
+  });
+  
+  $("#accessNav").off("click").on("click",function(){
+	 $(this).addClass('navbartactive');
+	 $("#goodsNav").removeClass('navbartactive')
+	  $("#accessTree").show();
+	  $("#goodsTree").hide();
+  });	 
+}
+ 
+/*nav 展开收缩方法*/
+function navBarSelectFun(){
+    var target = $(".navbaritem");
+    target.each(function(i,e){
+        $this = $(e);
+        $this.toggle(function(event){
+            var ulDom = $(this).next();
+            ulDom.stop();
+            ulDom.slideUp();
+            $(this).removeClass('icon-minus');
+            $(this).addClass('icon-plus');
+        },function(event){
+            var ulDom = $(this).next();
+            ulDom.stop();
+            ulDom.slideDown();
+            $(this).removeClass('icon-plus');
+            $(this).addClass('icon-minus');
+        })
+    });
+}
+/*初始化item li 点击变化*/
+function  navActiveFun(){
+    var target = $(".navtree  a");
+    target.each(function(i,e){
+        $this = $(e);
+        $this.on("click",function(){
+            target.removeClass("navtree-active");
+            $(this).addClass("navtree-active");
+        });
+    })
+}
+/*商品列表方法选中*/
+ function selectList(){
+	var list= $("#goodsList tr");
+	list.each(function(i,e){
+		var $this = $(this);
+		$this.off('click').on('click',function(){
+			//绑定结果
+			$("selectGoodId").val($(this).data('goodId'));
+			list.removeClass('selected');
+			$(this).addClass('selected');
+		});
+	});
+}
+/*商品分拆展开 */
+function showGoodsDetil(){
+	var target = $("#goodsList a");
+	target.each(function(i,e){
+		var $this = $(this);
+		var tr = $this.parent().parent();
+		var id = tr.data("data-goodId");
+		$(this).toggle(
+		function(){
+			$this.removeClass('listBtnPlus').addClass('listBtnMinus');
+		var html = $.ajax({
+			  url: "ajaxpage3.html",
+			  async: false
+			 }).responseText;
+		tr.after('<tr><td></td><td colspan="10" style="padding:5px;">'+html+'</td></tr>');
+		},
+		function(){
+			$this.removeClass('listBtnMinus').addClass('listBtnPlus');
+				$(this).parent().parent().next().remove();
+			}
+		);
+	});
+} 
+
+$(document).ready(function(){
+	goodsInit();
+});
+</script>

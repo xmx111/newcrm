@@ -1,0 +1,365 @@
+@CHARSET "UTF-8";
+/*所有btn的样式*/
+
+/*+展开*/
+.listBtnPlus{
+	display:inline-block;
+	overflow:hidden;
+	text-indent: -1000px;
+	display: block;
+	height:30px;
+	width:100%;
+	background: url("../images/btnicon/btnplus.png") no-repeat center center;
+}
+/*详情*/
+.listBtndetail{
+	display:inline-block;
+	overflow:hidden;
+	text-indent: -1000px;
+	height:30px;
+	width:100%;
+	background: url("../images/btnicon/btndetail.png") no-repeat center center;
+}
+.listBtnAdd  {
+	display:inline-block;
+	overflow:hidden;
+	text-indent: -1000px;
+	height:30px;
+	width:100%;
+	background: url("../images/btnicon/btn_add.png") no-repeat scroll 90% center transparent;
+}
+/*删除*/
+.listBtnDelete{
+	display:inline-block;
+	overflow:hidden;
+	text-indent: -1000px;
+	display: block;
+	height:30px;
+	width:100%;
+	background: url("../images/btnicon/btndelete.png") no-repeat center ;
+}
+/*-收缩*/
+.listBtnMinus{
+	display:inline-block;
+	overflow:hidden;
+	text-indent: -1000px;
+	display: block;
+	height:30px;
+	width:100%;
+	background: url("../images/btnicon/btnminus.png") no-repeat center center;
+}
+/*编辑*/
+.listBtnEdit{
+	display:inline-block;
+	overflow:hidden;
+	text-indent: -1000px;
+	display: block;
+	height:30px;
+	width:100%;
+	background: url("../images/btnicon/btnedit.png") no-repeat center center;
+}
+/* 虚线边框 +*/
+.dashedadd ,.dashedminus{
+  display:inline-block;
+  background: url("../images/btnicon/btnplus.png") no-repeat center center;
+  border-style:dashed;
+  border-width:1px;
+  border-color:#366A99;
+  width: 25px !important; 	
+  height: 25px !important;
+  overflow:hidden;
+  text-indent: -1000px !important; 
+  border-radius:3px;	
+}
+/* 虚线边框 -*/
+.dashedminus{
+  background: url("../images/btnicon/btnminus.png") no-repeat center center;
+}
+/*查询 sumbit 样式*/
+.btnSumbitBg{
+	border:1px solid #1372bf;
+	background-image: linear-gradient(bottom, #2D5A85 0%, #90BAE2 100%);
+	background-image: -o-linear-gradient(bottom, #2D5A85 0%, #90BAE2 100%);
+	background-image: -moz-linear-gradient(bottom, #2D5A85 0%, #90BAE2 100%);
+	background-image: -webkit-linear-gradient(bottom, #2D5A85 0%, #90BAE2 100%);
+	background-image: -ms-linear-gradient(bottom, #2D5A85 0%, #90BAE2 100%);
+	background-image: -webkit-gradient(
+		linear,
+		left bottom,
+		left top,
+		color-stop(0, #2D5A85),
+		color-stop(1, #90BAE2)
+	);
+	width:80px;
+	height: 23px !important;
+	border-radius:3px;
+	color:#fff;
+	line-height: 23px;
+	letter-spacing: 12px;
+	text-indent: 12px;
+	clear: both;
+	box-shadow: 0px 0px 12px 1px #DFDFDF inset;
+	cursor: pointer;
+}
+/*提交表单input 默认修改了*/
+.sumbitInput{
+	clip: rect(1px,1px,1px,1px);
+	width: 1px;
+	height: 1px !important;
+	background: transparent;
+	border:1px solid transparent;
+	padding: 0px;
+	margin: 0px;
+	position: absolute;
+	cursor: pointer;
+}
+.but4a{
+	display: inline-block;
+	letter-spacing: 0px;
+	text-indent: 0px;
+	text-align: center;
+}
+.icon-plus, .icon-minus {
+    background: url("../images/btnicon/btnplus.png") no-repeat center center;
+ }
+.icon-minus{
+	background: url("../images/btnicon/btnminus.png") no-repeat center center;
+}
+
+/*btn 放在同一行*/
+.btnInLine{
+	float:left;
+	width: 50%;
+}
+/* dailog  formtoolbar */
+.dialog .formBar { 
+	border-style:solid; 
+	border-width:1px;
+	clear:both; 
+	padding:0 5px; 
+	height:30px; 
+	padding-top:5px; 
+	border-style:solid; 
+	border-width:1px 0 0 0;
+}
+.button button,.buttonActive .buttonContent button, .buttonDisabled .buttonContent button{
+	border:1px solid #1372bf;
+	background-image: linear-gradient(bottom, #2D5A85 0%, #90BAE2 100%);
+	background-image: -o-linear-gradient(bottom, #2D5A85 0%, #90BAE2 100%);
+	background-image: -moz-linear-gradient(bottom, #2D5A85 0%, #90BAE2 100%);
+	background-image: -webkit-linear-gradient(bottom, #2D5A85 0%, #90BAE2 100%);
+	background-image: -ms-linear-gradient(bottom, #2D5A85 0%, #90BAE2 100%);
+	background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0, #2D5A85),color-stop(1, #90BAE2));
+	width:82px !important;
+	height: 25px !important;
+	border-radius:3px;
+	color:#fff;
+	line-height: 25px !important;
+	letter-spacing: 12px;
+	text-indent: 12px;
+	clear: both;
+	box-shadow: 0px 0px 12px 1px #DFDFDF inset;
+	font-weight: normal;
+	display: inline-block;
+	padding:0px;
+}
+.button .buttonContent button{
+	border:1px solid #A1B8CE;
+	background-image: linear-gradient(bottom, #E9DCDC 0%, #ffffff 100%);
+	background-image: -o-linear-gradient(bottom, #E9DCDC 0%, #ffffff 100%);
+	background-image: -moz-linear-gradient(bottom, #E9DCDC 0%, #ffffff 100%);
+	background-image: -webkit-linear-gradient(bottom, #E9DCDC 0%, #ffffff 100%);
+	background-image: -ms-linear-gradient(bottom, #E9DCDC 0%, #ffffff 100%);
+	background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0, #E9DCDC),color-stop(1, #ffffff));
+	color:#A59A9A;
+	
+}
+.buttonDisabled .buttonContent button{
+	border:1px solid #c9c9c9;
+	background-image: linear-gradient(bottom, #E9DCDC 0%, #ffffff 100%);
+	background-image: -o-linear-gradient(bottom, #E9DCDC 0%, #ffffff 100%);
+	background-image: -moz-linear-gradient(bottom, #E9DCDC 0%, #ffffff 100%);
+	background-image: -webkit-linear-gradient(bottom, #E9DCDC 0%, #ffffff 100%);
+	background-image: -ms-linear-gradient(bottom, #E9DCDC 0%, #ffffff 100%);
+	background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0, #E9DCDC),color-stop(1, #ffffff));
+	width:82px !important;
+	height: 25px !important;
+	border-radius:3px;
+	color:#A59A9A;
+	line-height: 25px !important;
+	letter-spacing: 12px;
+	text-indent: 12px;
+	clear: both;
+	box-shadow: 0px 0px 12px 1px #CECECE inset;
+	font-weight: normal;
+	display: inline-block;
+	padding:0px;
+	margin-right: 25px;
+}
+
+.dialog .formBar .buttonActive,.dialog .formBar .buttonContent,.dialog .formBar .buttonActiveHover, .dialog .formBar .buttonActiveHover .buttonContent,
+.dialog .formBar .buttonDisabled .buttonContent { background:none;}
+
+.dialog .button,.dialog .buttonDisabled,.dialog .buttonDisabled span, .dialog .buttonActive,.dialog .buttonActive span, .button .buttonContent, .buttonHover, .buttonHover .buttonContent, .buttonActive .buttonContent, .buttonActiveHover, .buttonActiveHover .buttonContent, .buttonDisabled .buttonContent {
+	background:none;
+}
+/* 左齐 按钮 */
+.formBar ul.left {
+	float: left;
+}
+
+/*toolbar 菜单 按钮*/
+.configtoolBar{
+	display: block;
+	height: 40px;
+	width:auto;
+	text-align: left;
+}
+.configtoolBar a{
+  	display:inline-block;
+	height:40px;
+	width:80px;
+	line-height: 38px; 
+	vertical-align: middle;
+	text-align: center;
+	text-indent: 25px;
+	cursor: pointer;
+}
+.configBarAdd{
+	background: url(../images/btnicon/toolbaradd.png) no-repeat;
+	background-position: 5px center;
+}
+.configBarEdit{
+	background: url(../images/btnicon/toolbaredit.png) no-repeat;
+	background-position: 5px center;
+}
+.configBarDelete{
+	background: url(../images/btnicon/toolbardelete.png) no-repeat;
+	background-position: 5px center;
+}
+.configBarSeperate{
+	background: url(../images/btnicon/toolbarseperate.png) no-repeat;
+	background-position: 5px center;
+}
+.configBarSupcard{
+	background: url(../images/btnicon/toolbarsupcard.png) no-repeat;
+	background-position: left center;
+	text-indent: 32px !important;
+	width: 85px !important; 
+}
+/*会员信息查询*/
+.configBarCustomerinfo{
+	background: url(../images/btnicon/customerinfo.png) no-repeat;
+	background-position: left center;
+	text-indent: 32px !important;
+	width: 85px !important;
+}
+
+.configtoolBar a:hover{
+	font-weight: bold;
+}
+/*展开附属工具栏*/
+.dbarrowdown,.dbarrowup{
+	display: inline-block;
+	width:40px;
+	height:40px;
+	background: url(../images/btnicon/dbarrowdown.png) no-repeat;
+	background-position: center center;
+	text-indent: -1000px !important;
+	overflow: hidden;
+}
+.dbarrowup{
+	background: url(../images/btnicon/dbarrowup.png) no-repeat;
+	background-position: center center;
+}
+.remindsearch{
+    float: right;
+    clear: both;
+    margin-top:6px; 
+}
+ .remindsearch li{
+    float: right;
+    margin-right:10px;
+  }
+ .remindsearch a{
+    display: block;
+    letter-spacing: 0px;
+	text-indent: 0px;
+	text-align: center;
+  }
+  
+ /**出发管理-左右位移按钮*/
+.departleft{
+	display:inline-block;
+	display: block;
+	height:35px;
+	width:100%;
+	background: url(../images/depart/icons/btnleft.png) no-repeat center ;
+}
+
+.departleftdisable{
+	display:inline-block;
+	display: block;
+	height:35px;
+	width:100%;
+	background: url(../images/depart/icons/btnleftdisable.png) no-repeat center ;
+}
+
+.departright{
+	display:inline-block;
+	display: block;
+	height:35px;
+	width:100%;
+	background: url(../images/depart/icons/btnright.png) no-repeat center ;
+}
+
+.departrightdisable{
+	display:inline-block;
+	display: block;
+	height:35px;
+	width:100%;
+	background: url(../images/depart/icons/btnrightdisable.png) no-repeat center ;
+}
+
+/**出发管理-刷新，删除按钮*/
+.departrefresh{
+	 display:inline-block;
+	  background: url("../images/depart/icons/btnrefresh.png") no-repeat center center;
+	  width: 22px !important; 	
+	  height: 22px !important;
+	  border-radius:3px;	
+}
+
+.departdelete{
+	  display:inline-block;
+	  background: url("../images/depart/icons/btndelete.png") no-repeat center center;
+	  width: 22px !important; 	
+	  height: 22px !important;
+	  border-radius:3px;	
+}
+
+/* 白底虚线边框 +*/
+.departadd{
+  display:inline-block;
+  background: url("../images/depart/icons/btnadd.png") center center;
+  width: 23px !important; 	
+  height: 23px !important;
+  border-radius:3px;	
+}
+/* 虚线边框 -*/
+.departminus{
+  display:inline-block;
+  background: url("../images/depart/icons/btnminus.png") center center;
+  width: 23px !important; 	
+  height: 23px !important;
+  border-radius:3px;	
+}
+
+/*下场球童标记*/
+.departcaddie{
+  display:inline-block;
+  background: url("../images/depart/icons/btndepartcaddie.png") center center;
+  width: 15px !important; 	
+  height: 15px !important;
+  border-radius:3px;	
+}

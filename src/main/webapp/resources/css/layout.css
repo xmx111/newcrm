@@ -1,0 +1,73 @@
+@CHARSET "UTF-8";
+/*重写样式*/
+/*header 背景*/
+#header{
+	height:50px !important;
+	background-image: linear-gradient(top, #F7FFE7 0%, #EFF3FF 52%, #BCCCFF 100%);
+    background-image: -o-linear-gradient(top, #F7FFE7 0%, #EFF3FF 52%, #BCCCFF 100%);
+    background-image: -moz-linear-gradient(top, #F7FFE7 0%, #EFF3FF 52%, #BCCCFF 100%);
+    background-image: -webkit-linear-gradient(top, #F7FFE7 0%, #EFF3FF 52%, #BCCCFF 100%);
+    background-image: -ms-linear-gradient(top, #F7FFE7 0%, #EFF3FF 52%, #BCCCFF 100%);
+    background-image: -webkit-gradient(linear, right top, right bottom, color-stop(0, #F7FFE7), color-stop(0.52, #EFF3FF), color-stop(1, #BCCCFF));
+}
+.headerNav {
+   background: none !important;  
+   height: 50px !important;
+}
+/*  short header*/
+#shortheader{
+	height:40px !important;
+	background-image: linear-gradient(top, #F7FFE7 0%, #EFF3FF 52%, #BCCCFF 100%);
+    background-image: -o-linear-gradient(top, #F7FFE7 0%, #EFF3FF 52%, #BCCCFF 100%);
+    background-image: -moz-linear-gradient(top, #F7FFE7 0%, #EFF3FF 52%, #BCCCFF 100%);
+    background-image: -webkit-linear-gradient(top, #F7FFE7 0%, #EFF3FF 52%, #BCCCFF 100%);
+    background-image: -ms-linear-gradient(top, #F7FFE7 0%, #EFF3FF 52%, #BCCCFF 100%);
+    background-image: -webkit-gradient(linear, right top, right bottom, color-stop(0, #F7FFE7), color-stop(0.52, #EFF3FF), color-stop(1, #BCCCFF));
+}
+.shortheaderNav {
+   background: none !important;  
+   height: 40px !important;
+}
+.textlogo{
+  float: left;
+  height: 40px;
+  line-height: 40px;
+  vertical-align: middle;
+  font-weight: bold;
+}
+
+#leftside {
+	position: absolute;
+	left: 0;
+	z-index: 20;
+}
+#container {
+	position: absolute;
+	top: 50px;
+	left: 207px;
+}
+#singleContainer{
+	position: absolute;
+	top: 50px;
+	left:0px;
+}
+.panelBar {
+	display: block;
+	overflow: hidden;
+	height: 38px;
+	border-style: solid;
+	border-width: 1px 1px;
+   	background-image: linear-gradient(top, #F7FFE7 0%, #EFF3FF 52%, #BCCCFF 100%);
+    background-image: -o-linear-gradient(top, #F7FFE7 0%, #EFF3FF 52%, #BCCCFF 100%);
+    background-image: -moz-linear-gradient(top, #F7FFE7 0%, #EFF3FF 52%, #BCCCFF 100%);
+    background-image: -webkit-linear-gradient(top, #F7FFE7 0%, #EFF3FF 52%, #BCCCFF 100%);
+    background-image: -ms-linear-gradient(top, #F7FFE7 0%, #EFF3FF 52%, #BCCCFF 100%);
+    background-image: -webkit-gradient(linear, right top, right bottom, color-stop(0, #F7FFE7), color-stop(0.52, #EFF3FF), color-stop(1, #BCCCFF)); 
+}
+.panelBar li {
+	float: left;
+	display: block;
+	overflow: hidden;
+	height:38px;
+	padding: 0 0 0 5px;
+}

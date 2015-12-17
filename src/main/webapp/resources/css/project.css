@@ -1,0 +1,536 @@
+@CHARSET "UTF-8";
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
+	font-family: 宋体,Arial,sans-serif;
+    font-size: 12px;
+}
+.tabsPage .tabsMore {
+	display: none;
+}
+a,a:hover{ 
+	text-decoration: none;
+	outline: none;
+}
+
+.col1 {
+	width: 100%;
+	display: block;
+	float: left;
+}
+
+.col2 {
+	width: 50%;
+	display: inline-block;
+	float: left;
+}
+/**combox set min width */
+.combox {
+	min-width: 130px;
+}
+.combox .select {
+	min-width: 102px;
+}
+.combox .select a {
+	width: 100%
+}
+.comboxop li ,.comboxop a {
+	display:block;
+	min-width: 110px;
+	width: 100%;
+	text-align: left;
+	text-indent:3px;
+	margin: 0;
+	padding: 0;	
+}
+.comboxop a:hover {
+   width: 100%;
+}
+.comboxop .selected {	
+	width: 100%;
+}
+.combox .disabled {
+	background-color: #F6F6F6;
+    border-width:1px;
+	border-style:solid;
+    border-color: #9EABB3 #D5DBDF #D5DBDF #9EABB3;
+	background-image: none;
+	height: 16px;
+}
+.combox a.disabled {
+	padding-top:2px;
+	padding-bottom:2px;
+	line-height: 14px;
+	height: 14px;
+}
+/* 所有bar 渐变 */
+.bar-bg {
+    background-image: linear-gradient(top, #F7FFE7 0%, #EFF3FF 52%, #BCCCFF 100%);
+    background-image: -o-linear-gradient(top, #F7FFE7 0%, #EFF3FF 52%, #BCCCFF 100%);
+    background-image: -moz-linear-gradient(top, #F7FFE7 0%, #EFF3FF 52%, #BCCCFF 100%);
+    background-image: -webkit-linear-gradient(top, #F7FFE7 0%, #EFF3FF 52%, #BCCCFF 100%);
+    background-image: -ms-linear-gradient(top, #F7FFE7 0%, #EFF3FF 52%, #BCCCFF 100%);
+    background-image: -webkit-gradient(linear, right top, right bottom, color-stop(0, #F7FFE7), color-stop(0.52, #EFF3FF), color-stop(1, #BCCCFF));
+}
+/*bar 边框  */
+.bar-border {
+    border: 1px solid #bcccff;
+}
+
+.border-right {
+    border-right: 1px solid #90bae2;
+}
+
+.border-left {
+    border-left: 1px solid #90bae2;
+}
+
+.border-bottom {
+    border-bottom: 1px solid #90bae2;
+}
+
+.border-top {
+    border-top: 1px solid #90bae2;
+}
+.border-none{
+    border:0px solid transparent !important;
+}
+.border-all {
+    border: 1px solid #90bae2;
+}
+.border-right-none {
+    border-right: 0px solid #90bae2 !important;
+}
+
+.border-left-none {
+    border-left: 0px solid #90bae2 !important;
+}
+
+.border-bottom-none {
+    border-bottom: 0px solid #90bae2 !important;
+}
+
+.border-top-none {
+    border-top:0px solid #90bae2 !important;
+}
+
+.border-all-none {
+    border: 0px solid #90bae2 !important;
+}
+/*
+ 项目中自定义UI 样式 
+*/
+/* 拖动 bar */
+#splitBar {
+	display: block;
+	overflow: hidden;
+	width: 2px;
+	cursor: col-resize;
+	position: absolute;
+	top: 90px;
+	left: 205px;
+	z-index: 20;
+}
+#splitBarProxy {
+	display: none;
+	overflow: hidden;
+	width: 2px;
+	border-style: solid;
+	border-width: 1px;
+	cursor: col-resize;
+	position: absolute;
+	top: 90px;
+	left: 205px;
+	z-index: 20;
+}
+
+/*系统logo*/
+#header .logo{
+	width:auto;
+    margin-left: 20px;
+	float: left;
+    color:#2d5a85;
+    font-family: \9ED1\4F53;
+    -webkit-text-stroke:.3px rgb(15, 43, 116);
+    text-indent: 0;
+    background: url('../images/logos/logo_1.png') 5px no-repeat;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+.logo span{
+	width:auto;
+	color:#2d5a85;
+    font-family: \9ED1\4F53;
+    -webkit-text-stroke:.3px rgb(15, 43, 116);
+    margin-left: 100px;
+    font-size: 18px;
+    line-height: 55px;
+}
+
+/*注销按钮*/
+.logout{
+    float: right;
+    display: block;
+    width: 60px;
+    height:50px;
+    line-height: 50px;
+    text-align: right;
+    margin-right: 30px;
+    background: url("../images/logout.png")  5px center no-repeat;
+    font-weight: bolder;
+}
+.changepwd{
+	float: right;
+    display: block;
+    width: 90px;
+    height:50px;
+    line-height: 50px;
+    text-align: right;
+    margin-right: 5px;
+    background: url("../images/changepwd.png")  5px center no-repeat;
+    font-weight: bolder;
+}
+.loginfo{
+    float: right;
+    height: 20px;
+    width: auto;
+    line-height: 55px;
+}
+.shortlogout{
+	float: right;
+	display: block;
+	width: 60px;
+	height: 40px;
+    line-height: 40px;
+	text-align: left;
+	margin-right: 30px;
+	background: url("../images/logout.png") 24px center no-repeat;
+	font-weight: bolder;
+}
+.shortloginfo{
+	float: right;
+	margin-right: 30px;
+	height: 40px;
+    line-height: 40px;
+	width: auto;
+}
+/*树title navbar
+.accordionHeader {
+	background-color: -webkit-gradient(linear, right top, right bottom, color-stop(0, #F7FFE7), color-stop(0.52, #EFF3FF), color-stop(1, #BCCCFF));
+}
+*/
+/*重写 数根节点样式
+.accordion .accordionHeader h2 span {
+	background:none;
+}
+.tree div div {
+    background: none;
+}
+.tree .folder_collapsable, .tree .folder_expandable, .tree .file {
+	background: none;
+}
+*/
+/* 按钮字体颜色*/
+.bottoncolor{
+	color:#4d4d4d; 
+}
+
+/*字体居中*/
+.font-center{
+	text-align: center;
+	vertical-align: middle;
+}
+
+.font-left{
+	text-align: left !important;
+}
+.font-right{
+	text-align: right !important;
+}
+.float-left{
+	float: left;
+}
+.float-right{
+	float:right;
+}
+
+/* 表格选中样式 */
+.selected{
+  	background:#BDD1E4;
+}
+.trselected{
+  	background:#BDD1E4 !important;
+}
+
+/*contextMenu 菜单*/
+.contextMenuLi{
+	display: block;
+	width: 60px;
+	height: auto;
+	padding:0;
+}
+
+.contextMenuLi a{
+	display:block;
+	height:21px;
+	width: 100%;
+	text-align: right !important;
+	text-decoration: none;
+	outline: none;
+	line-height: 21px;
+}
+.panelBar .add{
+	background:  url(../images/btnicon/toolbaraddmini.png) no-repeat 1px center;
+	background-size:  20px 20px;
+}
+.panelBar .edit{
+	background:  url(../images/btnicon/toolbareditmini.png) no-repeat 1px center;
+	background-size:  20px 20px;
+}
+.panelBar .delete{
+	background:  url(../images/btnicon/toolbardeletemini.png) no-repeat 1px center;
+	background-size:  20px 20px;
+}
+
+/*td 长文本 左起*/
+.tdfontLeft{
+	text-align: left !important;
+	text-indent: 3px !important;
+}
+
+/*分页效果*/
+.configpagecontier{
+	float: right;
+	display: block;
+	height:40px;
+	width:auto;
+}
+.prevPage,.nextPage,.pageNum,.choosePage{
+	display: inline-block;
+	border: 1px solid #bdbcbd;
+	background: #fff;
+	height: 26px;
+	width:26px;
+	text-align: center;
+	line-height: 26px;
+	vertical-align: middle;
+	margin-right: 10px;
+	margin-top: 7px;
+	cursor: pointer;
+}
+.pageNumActive{
+	background: #2d5a85;
+	color: #fff;
+}
+.pageNumDisable{
+	color: #adabab;
+}
+.choosePage{
+	width:80px;
+}
+
+/*数据表格*/
+.borderTable tr{
+	
+}
+.configTable{
+	table-layout:fix;
+	width: 100%;
+}
+.configTable thead{
+	background: #77afdc;
+}
+.configTable tr {
+	height: 30px;
+}
+.configTable td,.configTable th{
+	border-right:1px solid  #90bae2;
+	border-bottom: 1px solid  #90bae2;
+	line-height: 30px;
+	text-align: center;
+	vertical-align: middle;
+}
+/*信息表格label*/
+.tableLabel{
+    width:75px;
+  }
+/*搜索按钮条*/
+.searchbar{
+	width:100%;
+	height: 38px;
+	border-width:1px 0;
+	border-style: solid;
+	border-color: #90bae2; 
+	text-align: left;
+}
+.searchbar label{
+	display: inline-block;
+	margin-top: 7px;
+	margin-left: 10px;
+	height: 25px;
+}
+.searchbar input{
+	border-style: solid;
+	border-color: #90bae2; 
+}
+
+	
+/** css table */
+table.list{
+	width: 100%;
+}
+
+table.list a {
+	font-size: 12px;
+	text-decoration: none;
+}
+table.list th{
+	background: #77afdc;
+}
+table.list tr {
+	height: 30px;
+}
+table.list td,table.list th{
+	border-right:1px solid  #90bae2;
+	border-bottom: 1px solid  #90bae2;
+	line-height: 30px;
+	text-align: center;
+	vertical-align: middle;
+	font-weight: normal;
+}
+table.list tbody td{
+	text-align: left;
+	text-indent: 3px;
+}
+/**order */
+table.list th.asc, .grid .gridHeader th.asc {
+	background-color: #77AFDC;
+}
+table.list th.desc, .grid .gridHeader th.desc {
+	background-color: #77AFDC;
+}
+table.list .selected {
+	background:#BDD1E4;
+}
+/**简单数据表内容编辑页*/
+.easy_header {
+   background: none repeat scroll 0 0 #DEE6FF; 
+   height: 30px; 
+   line-height: 30px;
+}
+.easy_header ul {    
+  
+}
+.easy_header li {
+  height: 30px; 
+  line-height: 30px;
+  float: left;
+  border-right: 1px solid #90BAE2; 
+}
+.easy_data {
+  float: left;
+  width: 381px;
+  border-top: 1px solid #90BAE2;
+}
+.easy_editor {
+    float:left;
+    min-width:200px;
+    height: 100%; 
+    background-color:#FFFFFF;   
+}
+.easy_editor input.edit {
+    height: 40px; 
+    text-align: center; 
+    min-width: 200px;
+    margin-left: 3%;
+    margin-top: 5px;
+}
+/*文字溢出用用……代替*/
+.text-overflow{
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+.selectInput{
+	width:134px;
+	height: 21px;
+}
+/*自适应文本框 无边框*/
+.adaptiveTextarea{
+	border: none !important;
+	background: none !important;
+	width: 95%;
+	height: 95%;
+	text-align: left;
+}
+/* 日期输入框 图标*/
+.wdate::after{
+	position:relative;
+	content: "url(../images/datePicker.gif)";
+	width: 20px;
+	height: 20px;
+}
+.centerCombox .combox{
+	margin-left: 15px;
+}
+/**统计信息样式,用于出发,结账等*/
+.stat {
+    background: none repeat scroll 0 0 #7E7676;
+    bottom: 0;
+    color: #FFFFFF;
+    height: 30px;
+    left: 0;
+    line-height: 30px;
+    position: absolute;
+    right: 0;
+    text-align: left;
+    width: 100%;
+    font-size: 15px;
+}
+/*文字超出容器宽度用... 代替 */
+.text_ellipsis{
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+/*文字超出容器宽度用直接裁切 */
+.text_clip{
+	text-overflow:clip;
+	overflow: hidden;
+	white-space: nowrap;
+}
+/* 快捷查询*/
+span.search{
+    background:url(../images/btnicon/btnquicksearch.png);
+    background-position:center center;
+    background-repeat: no-repeat;
+    background-size: 80% 80% ; 
+    float: right;
+    height: 24px;
+    margin-top: -28px;
+    position: relative;
+    width: 25px;
+    text-indent:-1000px;
+    overflow: hidden;
+}
+td.searchtd{
+	width: 120px;
+}
+/* 读取消费卡*/
+span.read_expensecard {
+	background:url(../images/read_expense_card.gif);
+    background-position:center center;
+    background-repeat: no-repeat;
+    background-size: 80% 80% ; 
+    float: right;
+    height: 20px;
+	margin-top: 5px;
+    position: relative;
+    width: 20px;
+    text-indent:-1000px;
+    overflow: hidden;
+}
+
+/**表格固定列宽*/
+.tablefixed{
+    table-layout : fixed !important;
+}

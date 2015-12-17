@@ -1,0 +1,45 @@
+﻿@CHARSET "UTF-8";
+/*右键菜单*/
+.contextMenu {
+	display: none;
+}
+.toolBar1 {
+	display: block;
+	height: 40px;
+	width:auto;
+	text-align: left;
+}
+
+.toolBar1 a{
+   	display: inline-block;
+   	width:80px;
+   	height: 38px;
+}
+
+.toolBar1 a:hover{
+	font-weight: bold;
+}
+
+.toolBar1 a.add,.toolBar1 a.edit,.toolBar1 a.delete,.toolBar1 a.seperate {
+	display: block;
+	height:40px;
+	width:70px; 
+	background-position: 5px center;
+	line-height: 30px; 
+	vertical-align: middle;
+	text-align: center;
+	text-indent: 25px;
+	color: #4D4D4D;
+}
+.toolBar1 a.add {
+	background: url(../images/btnicon/toolbaradd.png) no-repeat;
+}
+.toolBar1 a.edit {
+	background: url(../images/btnicon/toolbaredit.png) no-repeat;
+}
+.toolBar1 a.delete {
+	background: url(../images/btnicon/toolbardelete.png) no-repeat;
+}
+.toolBar1 a.seperate {
+	background: url(../images/btnicon/toolbarseperate.png) no-repeat;
+}

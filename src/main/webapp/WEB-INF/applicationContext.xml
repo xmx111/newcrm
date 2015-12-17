@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context" 
+    xmlns:tx="http://www.springframework.org/schema/tx" 
+    xmlns:task="http://www.springframework.org/schema/task"
+    xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+    xmlns:cache="http://www.springframework.org/schema/cache"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd 
+		http://www.springframework.org/schema/task   
+        http://www.springframework.org/schema/task/spring-task-3.2.xsd
+	    http://www.springframework.org/schema/data/jpa
+	    http://www.springframework.org/schema/data/jpa/spring-jpa.xsd
+	    http://www.springframework.org/schema/cache
+	    http://www.springframework.org/schema/cache/spring-cache-3.1.xsd"
+    default-autowire="byName" default-lazy-init="true" default-destroy-method="destroy">
+    <!-- 读取配置文件 -->
+    <bean id="placeholderConfig" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="Locations">
+            <array>
+                <value>classpath:db.properties</value>
+                <value>classpath:project.properties</value>
+                <value>classpath:version.properties</value>
+            </array>
+        </property>
+        <property name="fileEncoding" value="utf-8"/>
+    </bean>
+    <!-- 国际化资源文件 -->
+    <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+        <property name="useCodeAsDefaultMessage" value="true" />
+        <property name="basenames">
+            <list>
+                <value>errors</value>
+                <value>labels</value>
+            </list>
+        </property>
+    </bean>
+
+    <!-- 注释有效 -->
+    <bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" />
+    <!-- 扫描路径 -->
+    <context:component-scan base-package="com.ufo" scoped-proxy="targetClass">
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller" />
+    </context:component-scan>
+
+    <!-- 定义数据源 -->
+    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" init-method="init" destroy-method="close">
+        <property name="driverClassName" value="${database.driver}" />
+        <property name="url" value="${database.url}" />
+        <property name="username" value="${database.username}" />
+        <property name="password" value="${database.password}" />
+        <!-- 配置连接池初始化大小、最小、最大 -->
+        <property name="initialSize" value="${pool.initialSize}" />
+        <property name="minIdle" value="${pool.minIdle}" />
+        <property name="maxActive" value="${pool.maxActive}" />
+        <!-- 配置监控统计拦截的filters -->
+        <property name="filters" value="stat" />
+    </bean>
+
+    <!-- 注入entityManager -->
+    <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+        <property name="dataSource" ref="dataSource" />
+        <property name="packagesToScan" value="com.ufo.**.entity" />
+        <property name="jpaVendorAdapter">
+            <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter" />
+        </property>
+        <property name="jpaProperties">
+            <props>
+                <prop key="hibernate.dialect">org.hibernate.dialect.MySQL5InnoDBDialect</prop>
+                <prop key="hibernate.connection.autocommit">false</prop>
+                <prop key="hibernate.jdbc.fetch_size">50</prop>
+                <prop key="hibernate.max_fetch_depth">3</prop>
+                <prop key="hibernate.jdbc.batch_size">100</prop>
+                <prop key="hibernate.hbm2ddl.auto">update</prop>
+                <prop key="hibernate.show_sql">true</prop>
+                <prop key="hibernate.format_sql">true</prop>
+
+                <prop key="hibernate.cache.region.factory_class">com.ufo.core.cache.SpringEhCacheRegionFactory</prop>
+                <prop key="net.sf.ehcache.configurationResourceName">ehcache-config.xml</prop>
+                <prop key="hibernate.cache.use_query_cache">true</prop>
+                <prop key="hibernate.cache.use_second_level_cache">true</prop>
+                <prop key="hibernate.generate_statistics">true</prop>
+
+                <prop key="hibernate.connection.SetBigStringTryClob">true</prop>
+            </props>
+        </property>
+    </bean>
+    
+    <bean id="persistenceUnitPostProcessors" class="com.ufo.core.dao.jpa.ExtPersistenceUnitPostProcessor" />
+    
+    <!-- lo4jdbc 显示sql 语句 -->
+    <bean id="log4jdbcInterceptor" class="net.sf.log4jdbc.DataSourceSpyInterceptor" />
+    <bean id="dataSourceLog4jdbcAutoProxyCreator" class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">
+        <property name="interceptorNames">
+            <list>
+                <value>log4jdbcInterceptor</value>
+            </list>
+        </property>
+        <property name="beanNames">
+            <list>
+                <value>dataSource</value>
+            </list>
+        </property>
+    </bean>
+    
+    <!-- Spring Data JPA配置 -->
+    <jpa:repositories base-package="com.ufo.**.dao" transaction-manager-ref="transactionManager"
+        entity-manager-factory-ref="entityManagerFactory" />
+    
+    <!-- 定义事务 -->
+    <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+        <property name="entityManagerFactory" ref="entityManagerFactory" />
+        <property name="dataSource" ref="dataSource" />
+    </bean>
+    
+    <!-- 注释让事务有效 -->
+    <tx:annotation-driven transaction-manager="transactionManager" />
+    
+    <!-- Spring Cache配置 -->
+    <cache:annotation-driven />
+    <!-- 与JPA Hibernate共享一个cacheManager -->
+    <bean id="cacheManager" class="org.springframework.cache.ehcache.EhCacheCacheManager">
+        <property name="cacheManager">
+            <bean class="com.ufo.core.cache.SpringEhCacheRegionFactory" />
+        </property>
+    </bean>
+    
+    <!-- 基于注解的任务 -->
+    <task:annotation-driven />
+
+
+</beans>

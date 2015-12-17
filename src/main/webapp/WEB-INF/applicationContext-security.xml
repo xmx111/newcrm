@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<b:beans xmlns="http://www.springframework.org/schema/security" xmlns:b="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	 http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+	 http://www.springframework.org/schema/context 
+	 http://www.springframework.org/schema/context/spring-context-3.2.xsd
+    http://www.springframework.org/schema/security 
+    http://www.springframework.org/schema/security/spring-security-3.1.xsd"
+    default-autowire="byName" default-lazy-init="true">
+
+    <!-- 扫描控制层 -->
+    <context:component-scan base-package="com.ufo">
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Service" />
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Repository" />
+    </context:component-scan>
+
+    <context:annotation-config />
+    <!-- 不要过滤图片等静态资源 -->
+    <http pattern="/**/*.jpg" security="none" />
+    <http pattern="/**/*.png" security="none" />
+    <http pattern="/**/*.gif" security="none" />
+    <http pattern="/**/*.css" security="none" />
+    <http pattern="/**/*.js" security="none" />
+    <http pattern="/**/*.ws" security="none" />
+    <http pattern="/download/**/*.*" security="none" />
+    <!-- 登录页面和忘记密码页面不过滤 -->
+    <http pattern="/login.htm" security="none" />
+    <http pattern="/forgotpassword.htm" security="none" />
+
+    <!-- access-denied-page="/accessDenied.htm" -->
+    <http auto-config="true" entry-point-ref="loginUrlPoint">
+        <!-- 登陆Form -->
+        <form-login login-page="/login.htm" authentication-success-handler-ref="loginSuccessHandler"
+            authentication-failure-handler-ref="loginFailureHandler" />
+        
+        <!-- 自定义访问控制 -->
+        <access-denied-handler ref="accessDeniedHandler" />
+
+        <!-- 检测失效的sessionId,超时时定位到另外一个URL
+            <custom-filter ref="sessionFilter" before="SESSION_MANAGEMENT_FILTER" />
+        -->
+        <!-- 增加一个自定义的免登录filter，放在REMEMBER_ME_FILTER之前， 实现cookie的管理。 -->
+        <custom-filter ref="rememberMeFilter" before="REMEMBER_ME_FILTER" />
+        <!-- 增加一个自定义的filter，放在FILTER_SECURITY_INTERCEPTOR之前， 实现用户、角色、权限、资源的数据库管理。 -->
+        <custom-filter ref="securityFilter" before="FILTER_SECURITY_INTERCEPTOR" />
+        <!-- 自定义退出登陆 -->
+        <logout logout-url="/logout" success-handler-ref="logoutSuccessHandler" />
+    </http>
+    <!-- 定义登陆成功,或失败处理,此处记录登陆日志 -->
+    <b:bean id="loginSuccessHandler" class="com.ufo.core.security.LoginSuccessHandler">
+        <b:property name="defaultTargetUrl" value="/index.htm" />
+        <b:property name="targetUrlParameter" value="redirect"/>
+    </b:bean>
+    <b:bean id="loginFailureHandler" class="com.ufo.core.security.LoginFailureHandler">
+        <b:property name="defaultFailureUrl" value="/login.htm?error=true" />
+    </b:bean>
+    <!-- 注销成功后删除cookie -->
+    <b:bean id="logoutSuccessHandler" class="com.ufo.core.security.LogoutSuccessHandler">
+        <!--<b:property name="ssoCleanUrl" value="${sso.clean.url}" />-->
+    </b:bean>
+    
+    <!-- 一个自定义的免登录filter，必须包含authenticationManager, accessDecisionManager,securityMetadataSource三个属性。 -->
+    <b:bean id="rememberMeFilter" class="org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter">
+        <b:property name="authenticationManager" ref="authenticationManager" />
+        <b:property name="rememberMeServices" ref="rememberMeServices" />
+    </b:bean>
+
+    <!-- 一个自定义的资源filter，必须包含authenticationManager, accessDecisionManager,securityMetadataSource三个属性。 -->
+    <b:bean id="securityFilter" class="org.springframework.security.web.access.intercept.FilterSecurityInterceptor">
+        <b:property name="authenticationManager" ref="authenticationManager" />
+        <b:property name="accessDecisionManager" ref="accessDecisionManager" />
+        <b:property name="securityMetadataSource" ref="securityMetadataSource" />
+    </b:bean>
+
+    <!-- 登陆跳转 -->
+    <b:bean id="loginUrlPoint" class="com.ufo.core.security.LoginUrlEntryPoint" />
+    <!-- 无权访问反回json -->
+    <b:bean id="accessDeniedHandler" class="com.ufo.core.security.AccessDeniedHandlerImpl" />
+    <!-- 认证管理器 -->
+    <authentication-manager alias="authenticationManager">
+        <authentication-provider ref="daoAuthenticationProvider" />
+        <authentication-provider ref="rememberMeAuthenticationProvider" />
+    </authentication-manager>
+
+    <!-- 用户的密码加密或解密 -->
+    <b:bean id="passwordEncoder" class="org.springframework.security.authentication.encoding.Md5PasswordEncoder" />
+    
+    <!-- 自定义用户验证器 -->
+    <b:bean id="daoAuthenticationProvider" class="com.ufo.core.security.provider.CustomDaoAuthenticationProvider">
+        <b:property name="userDetailsService" ref="userDetailsManager" />
+        <!--<b:property name="ssoLoginUrl" value="${sso.login.url}" />-->
+    </b:bean>
+    
+    <!-- 自定义cookie验证器 -->
+    <b:bean id="rememberMeAuthenticationProvider" class="com.ufo.core.security.provider.CustomRememberMeAuthenticationProvider">
+  		<b:property name="key" value="springmisck"/>
+	</b:bean>
+
+    <!-- 免登录服务 -->
+    <b:bean id="rememberMeServices" class="com.ufo.core.security.TokenRememberMeServices" >
+       	<b:property name="key" value="springmisck" />  
+  		<b:property name="userDetailsService" ref="userDetailsManager"/> 
+        <b:property name="cookieName" value="mis_framework" />
+        <!--<b:property name="ssoTokenUrl" value="${sso.token.url}" />-->
+    </b:bean>
+
+    <!-- 访问决策器，决定某个用户具有的角色，是否有足够的权限去访问某个资源。 -->
+    <b:bean id="accessDecisionManager" class="com.ufo.core.security.AccessDecisionManager" />
+
+    <!-- 资源源数据定义，将所有的资源和权限对应关系建立起来，即定义某一资源可以被哪些角色去访问。 -->
+    <b:bean id="securityMetadataSource" class="com.ufo.core.security.SecurityMetadataSourceService" />
+
+    <!-- 用户详细信息管理：数据源、用户缓存（通过数据库管理用户、角色、权限、资源）。 -->
+    <b:bean id="userDetailsManager" class="com.ufo.core.security.UserDetailsService" />
+
+</b:beans>

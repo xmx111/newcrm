@@ -1,0 +1,1 @@
+mvn install:install-file -Dfile=log4jdbc4-1.2.2.jar -DgroupId=net.sf.log4jdbc -DartifactId=log4jdbc4 -Dversion=1.2.2 -Dpackaging=jar  -DgeneratePom=true -DcreateChecksum=true

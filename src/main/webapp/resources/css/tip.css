@@ -1,0 +1,150 @@
+@CHARSET "UTF-8";
+
+div.tip{
+	position: absolute;
+	left: -360px;
+	top:0px;
+	width: 350px;
+	height: auto;
+	z-index: 2000;
+	cursor: pointer;
+}
+div.tip .body{
+	padding:0px 0px 5px 0px;
+	width:350px;
+	height:auto;
+	left: 10px;
+	top:10px;
+	display: block;
+	background: url(../images/tip/tip_bg.png);
+	border:5px solid #fff;
+	box-shadow:0 0 1px #000000;
+	-webkit-box-shadow:0 0 2px #000;
+	-moz-box-shadow:0 0 1px #000;
+}
+
+div.tip .title{
+	height: 30px;
+	background: #7CB7E4;
+	width: 100%;
+	line-height: 30px;
+	text-align: left;
+	text-indent: 3px;
+}
+
+.citem{
+	margin-left: 20px;
+}
+
+
+div.tip .vcard{
+	height: 60px;
+	width: 100%;
+	border-bottom: 1px solid #000;
+}
+
+.tip .vcard span{
+	width: 25%;
+	display: inline-block;
+	text-align: left;
+	text-indent: 5px;
+	height: 20px;
+	margin-top:8px; 
+}
+
+.vcard span.name , .tcard span.name{
+	font-weight: bolder;
+}
+
+.tip .tcard{
+	margin-top:8px;
+	border: 1px solid #000;
+}
+.tcard .title > span{
+	width: 23%;
+	display: inline-block;
+	line-height: 30px;
+}
+.tcard .item >span{
+	width: 33%;
+	display: inline-block;
+}
+.coupon .item >span{
+	width: 49%;
+	display: inline-block;
+}
+.tcard .item{
+	height:30px;
+	width: 100%;
+}
+.tcard .item >span{
+	line-height: 30px;
+	height: 100%;
+	border-right: 1px solid #000;
+	border-bottom: 1px solid #000;
+}
+.tcard .item >span:last-child{
+	border-right: none;
+}
+
+.tip .info{
+	margin-top:8px;
+	display: block;
+	width: 100%;
+}
+
+.tip .info .content{
+	z-index:2000;
+	min-height:50px;
+	display: block;
+	width: 97%;
+	text-indent:26px;
+	font-size: 13px;
+	line-height: 20px;
+	vertical-align: middle; 
+	text-align: left;
+    border: 1px solid #ccc;
+    background: #ccc;
+    padding: 4px;
+}
+.tip .warn{
+	color: red;
+	text-decoration: blink;
+	font-weight: bolder;
+	font-size:13px;
+}
+
+/* 
+.tipin{
+	-webkit-animation:animationtipin 1s ease-in;
+	-moz-animation:animationtipin 1s ease-in;
+	animation:animationtipin 1s ease-in;
+	animation-fill-mode:forwards;
+}
+
+.tipout{
+	-webkit-animation:animationtipout 1s ease-in;
+	-moz-animation:animationtipout 1s ease-in;
+	animation:animationtipout 1s ease-in;
+	animation-fill-mode:forwards;
+}
+
+@-webkit-keyframes animationtipin{
+	0%{left: -350px;opacity:0;}
+	100%{left: 0px;opacity:1;}
+}
+@-moz-keyframes animationtipin{
+	0%{left: -350px;opacity:0;}
+	100%{left: 0px;opacity:1;}
+}
+@-webkit-keyframes animationtipout{
+	0%{left:0px;opacity:1;tarnsfrom:scale(1);}
+	0%{left:-175px;opacity:1;tarnsfrom:scale(0.5);}
+	100%{left:-350px;opacity:0;tarnsfrom:scale(0);}
+}
+@-moz-keyframes animationtipout{
+	0%{left:0px;opacity:1;tarnsfrom:scale(1);}
+	0%{left:-175px;opacity:1;tarnsfrom:scale(0.5);}
+	100%{left:-350px;opacity:0;tarnsfrom:scale(0);}
+}
+ */
