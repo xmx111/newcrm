@@ -25,14 +25,14 @@ import com.ufo.core.entity.BaseEntity;
 * 类描述： 业务日志
 * 
 * 
-* 创建人：Dongcl
+* 创建人：hekang
 * 创建时间：2012-10-23 上午11:04:38 
 * @version 
 * 
 */
 @MetaData(value = "业务日志")
 @Entity
-@Table(name = "ucenter_business")
+@Table(name = "tb_sys_business_log")
 public class BusinessLog extends BaseEntity implements Serializable {
 
     /**

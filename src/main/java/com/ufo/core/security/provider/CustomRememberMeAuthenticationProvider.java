@@ -4,4 +4,7 @@ import org.springframework.security.authentication.RememberMeAuthenticationProvi
 
 @SuppressWarnings("deprecation")
 public class CustomRememberMeAuthenticationProvider extends RememberMeAuthenticationProvider {
+    public CustomRememberMeAuthenticationProvider(String key) {
+        super(key);
+    }
 }

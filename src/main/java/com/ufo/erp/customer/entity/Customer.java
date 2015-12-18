@@ -100,6 +100,10 @@ public class Customer extends UndeleteEntity implements java.io.Serializable {
     @EntityAutoCode(order = 60, listShow = true)
     private Boolean hasAccount;
 
+    @MetaData(value = "是否信誉良好")
+    @EntityAutoCode(order = 60, listShow = true)
+    private Boolean isGoodCredit;
+
     @Column(length = 32)
     public String getName() {
         return name;

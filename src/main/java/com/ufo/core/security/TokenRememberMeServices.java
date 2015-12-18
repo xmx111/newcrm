@@ -7,12 +7,9 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.*;
 import org.springframework.security.crypto.codec.Base64;
-import org.springframework.security.web.authentication.rememberme.InvalidCookieException;
-import org.springframework.security.web.authentication.rememberme.PersistentRememberMeToken;
-import org.springframework.security.web.authentication.rememberme.PersistentTokenBasedRememberMeServices;
-import org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationException;
+import org.springframework.security.web.authentication.rememberme.*;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
@@ -28,7 +25,11 @@ public class TokenRememberMeServices extends PersistentTokenBasedRememberMeServi
     private String ssoTokenUrl;
 
     private static final String DELIMITER = ":";
-    
+
+    public TokenRememberMeServices(String key, org.springframework.security.core.userdetails.UserDetailsService userDetailsService, PersistentTokenRepository tokenRepository) {
+        super(key, userDetailsService, tokenRepository);
+    }
+
     @Override
     protected UserDetails processAutoLoginCookie(String[] cookieTokens, HttpServletRequest request, HttpServletResponse response) {
         
